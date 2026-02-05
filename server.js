@@ -16,7 +16,8 @@ app.get("/stj/informativo", async (req, res) => {
   let browser;
 
   try {
-    browser = await chromium.launch({ headless: false });
+    browser = await chromium.launch({   headless: true,
+  args: ["--no-sandbox", "--disable-setuid-sandbox"] });
 
     const context = await browser.newContext({
       locale: "pt-BR",
