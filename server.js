@@ -8,6 +8,11 @@ function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
+app.get("/", (req, res) => {
+  res.status(200).send("STJ verificador rodando 🚀");
+});
+
+
 app.get("/stj/informativo", async (req, res) => {
   const query = String(req.query.query || "").trim();
   if (!query) return res.json({ ok: false, error: "Missing query" });
